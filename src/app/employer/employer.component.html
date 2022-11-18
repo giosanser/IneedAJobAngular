@@ -1,0 +1,24 @@
+<h1>I Need a Job</h1>
+<section class="row card-group">
+    <div *ngFor="let employer of EMPLOYERS" class="card m-3 col-lg-6 text-center h-100">
+        <h2 class="card-title text-primary" (click)="onSelect(employer)">{{employer.name}}</h2>
+        {{employer.location}}
+    </div>
+</section>
+
+<section *ngIf="selectedEmployer">
+    <h2>Employer details</h2>
+    <fieldset class="m-3">
+        <label class="col-2">Id:</label>
+        <input [(ngModel)]="selectedEmployer.id" />
+    </fieldset>
+    <fieldset class="m-3">
+        <label class="col-2">Name:</label>
+        <input [(ngModel)]="selectedEmployer.name"   />
+    </fieldset>
+    <fieldset class="m-3">
+        <label class="col-2">Location:</label>
+        <input [(ngModel)]="selectedEmployer.location"  />
+    </fieldset>
+    <button class="btn btn-primary offset-2" (click)="reset()">Hide/Reset</button>
+</section>
